@@ -1,0 +1,45 @@
+<app-sub-header></app-sub-header>
+<div class="container-fluid" style="font-size:1.5em;">
+  <h1 style="text-align: center;margin-top:100px">Create New Company</h1>
+  <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+          <form [formGroup]="createCompanyForm" (ngSubmit)="onSubmit()" >
+              <div >
+                  <label for="company">Company Name</label>
+                  <input type="text" class="form-control" formControlName="company" required>
+              </div>
+              <div >
+                  <label for="ceo">CEO Name</label>
+                  <input type="text" class="form-control" formControlName="ceo">
+              </div>
+              <div >
+                <label for="turnOver">TurnOver</label>
+                <input type="text" class="form-control" formControlName="turnOver">
+              </div>
+
+              <div >
+                <label for="ipoDate">IPO Date</label>
+                <input type="text" class="form-control" formControlName="ipoDate">
+              </div>
+              <div >
+                <label for="stockCode">Stock Code</label>
+                <input type="text" class="form-control" formControlName="stockCode">
+              </div>
+              <div >
+                <label for="sector">Sector</label>
+                <input type="text" class="form-control" formControlName="sector">
+              </div>
+              <div >
+                <label for="desc">Brief Description</label>
+                <input type="text" class="form-control" formControlName="desc">
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="!createCompanyForm.valid" style="margin-top:15px">Save</button>
+          </form>
+      </div>
+      <div class="col-sm-4">
+      </div>
+  </div>
+</div>
+

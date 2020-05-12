@@ -1,0 +1,22 @@
+<div class="container-fluid" style="font-size:1.5em;">
+  <h1 style="text-align: center;margin:100px 0">Stock Market</h1>
+  <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit(login)" >
+              <div >
+                  <label for="name">username:</label>
+                  <input name="userName" type="text" class="form-control" placeholder="name" formControlName="userName" required>
+              </div>
+              <div >
+                  <label for="name">password:</label>
+                  <input name="password" type="password" class="form-control" placeholder="password" formControlName="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" style="margin-top:15px">Login</button>
+          </form>
+      </div>
+      <div class="col-sm-4">
+      </div>
+  </div>
+</div>
