@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: company
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: JiaYanZhong
+Implementation-Vendor-Id: com.ibm
+Build-Jdk: 1.8.0
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,27 @@
+server:
+    port: 8080
+    use-forward-headers: true
+    undertow:
+        io-threads: 2
+        worker-threads: 32
+        buffer-size: 1024
+        directBuffers: true
+spring:
+    profiles:
+        active: "mysql"
+    devtools:
+        enabled: true
+    http:
+        encoding:
+            charset: UTF-8
+            force: true
+            enabled: true
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 10MB
+logging:
+    level:
+        org.springframework: WARN
+        org.hibernate: WARN
+
