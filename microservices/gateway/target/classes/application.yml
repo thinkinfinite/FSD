@@ -1,0 +1,70 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gateway
+server:
+  port: 9023
+
+# configure eureka client
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: false
+
+zuul:
+  host: 
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  routes:
+    auth-service:
+      path: /auth/**
+      sensitive-headers: Cookie,Set-Cookie
+      serviceId: auth
+    user-service:
+      path: /user/**
+      serviceId: user
+hystrix: 
+  command: 
+    default: 
+      execution: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 300000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 100000
+security:
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: "Bearer "
+    expiration: 18000
+    secret: jfiaejiafejiafme
+
+---
+spring:
+  profiles: dev
+server:
+  port: 9023
+
+---
+spring:
+  profiles: test
+  cloud:
+    client:
+      hostname: gateway
+server:
+  port: 9023
+eureka:
+  instance:
+    hostname: gateway
+    preferIpAddress: false
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
